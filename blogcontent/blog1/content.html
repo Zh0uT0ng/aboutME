@@ -86,22 +86,22 @@
       然后按照集数顺序进行分析，最后按照自己的理解编排顺序，整合整个课程。</p>
     
     <h3>Ron Resch结构的展开</h3>
-    <p>我现在已经根据shooting方法算出了展开路径上Resch结构的每一个坐标，目标是根据这些坐标得到整个路径的动画。</p>
-    <p>- Blender与Python的动画交互<p>
+    <p>现在已经根据shooting方法算出了展开路径上Resch结构的每一个坐标，目标是根据这些坐标得到整个路径的动画。</p>
+    <h5>Blender与Python的动画交互</h5>
     <p>Blender的动画设置是对每个body在每一个帧的位置进行设定，body在每一帧的位置根据其中心坐标和绕X Y Z三个轴的旋转角度来确定，
-      具体来说，程序如下：</p>
+      具体来说，确定操作帧数的语句为</p>
+    
     <blockquote>
-    <p>frame_number = 0 </p>
-    <p>  for i in range(1,len(motionList)): </p>
-    <p>    bpy.context.scene.frame_set(frame_number) </p>
-    <p>     pm0=(np.array(points[topoPlane[0][0]-1])+ </p>
-    <p>          np.array(points[topoPlane[0][1]-1])+ </p>
-    <p>          np.array(points[topoPlane[0][2]-1]))/3 </p>
-    <p>    obj_0.location = (pm0[0],pm0[1],pm0[2]) </p>
-    <p>    obj_0.keyframe_insert(data_path = "location",index = -1) </p>
-    <p>    frame_number += 5 </p>
+      <p>frame_number = 0 </p>
+      <p>bpy.context.scene.frame_set(frame_number) </p>
     </blockquote>
     
+    <p>操作body在这一帧上的位置（注意是物体中心位置）的语句为：直接将物体的坐标更改为(1,2,3)，index=-1意思是同时更改X，Y，Z的坐标</p>
+    
+    <blockquote>
+      <p>obj.location = (1,2,3) </p>
+      <p>obj.keyframe_insert(data_path = "location",index = -1) </p>
+    </blockquote>
     
   </div>
 
