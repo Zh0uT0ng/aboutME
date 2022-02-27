@@ -85,23 +85,16 @@
     <p>Here is the problem: How to LINK the MATLAB(where we do computing) and Blender(where we do rendering)?</p>
     
     <h3>Something about Blender</h3>
-    <p>Wikipedia would tell us its features of open-source and how friendly it is for Python users. 
-       That is right! Any move in the Blender can be replicated with the help of Python scripts.</p>
-    <h5>Blender与Python的动画交互</h5>
-    <p>Blender的动画设置是对每个body在每一个帧的位置进行设定，body在每一帧的位置根据其中心坐标和绕X Y Z三个轴的旋转角度来确定，
-      具体来说，确定操作帧数的语句为</p>
+    <p>Blender is famous of its features of open-source and how friendly it is for Python users. 
+       That is right! Any move in the Blender can be replicated with the help of Python scripts.
+       </p>
+    <p>The normal method is to refer to the Blender Document. 
+       One trick is taking the information hint on the Info window of the Scripting Tab. So keep in mind. 
+       </p>
+    <p>
     
-    <blockquote>
-      <p>frame_number = 0 </p>
-      <p>bpy.context.scene.frame_set(frame_number) </p>
-    </blockquote>
     
-    <p>操作body在这一帧上的位置（注意是物体中心位置）的语句为：直接将物体的坐标更改为(1,2,3)，index=-1意思是同时更改X，Y，Z的坐标</p>
     
-    <blockquote>
-      <p>obj.location = (1,2,3) </p>
-      <p>obj.keyframe_insert(data_path = "location",index = -1) </p>
-    </blockquote>
     
   </div>
 
