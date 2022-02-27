@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+  
+  <link href="./apple-icon-180x180.png" rel="apple-touch-icon">
+  <link href="./assets/favicon.ico" rel="icon">
+
+
+
+  <title>Zhou Tong | 重制Erik Demaine教授的折纸课</title>  
+
+<link href="./main.82cfd66e.css" rel="stylesheet"></head>
+
+<body>
+
+ <!-- Add your content of header -->
+<header class="">
+  <div class="navbar navbar-default visible-xs">
+    <button type="button" class="navbar-toggle collapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="./index.html" class="navbar-brand">Blog</a>
+  </div>
+
+  <nav class="sidebar">
+    <div class="navbar-collapse" id="navbar-collapse">
+      <div class="site-header hidden-xs">
+          <a class="site-brand" href="./index.html" title="">
+            <img class="img-responsive site-logo" alt="" src="./mashup-logo.svg">
+            周  通   ZHOU  TONG
+          </a>
+        <p>武汉大学工业科学研究院博士生，研究兴趣为基于折纸与剪纸的多稳态结构设计。</p>
+        <p>PhD STUDENT IN WUHAN UNIVERSITY, MAJORING IN MULTI-STABLE STRUCTURE DESIGN BASED ON ORIGAMI AND KIRIGAMI</p>
+      </div>
+      <ul class="nav">
+        <li><a href="./index.html" title="">PROJECTS</a></li>
+        <li><a href="./about.html" title="">ABOUT</a></li>
+        <li><a href="./publications.html" title="">PUBLICATIONS</a></li>
+        <li><a href="./blog.html" title="">BLOG</a></li>
+        <li><a href="./contact.html" title="">CONTACT</a></li>
+
+      </ul>
+
+      <nav class="nav-footer">
+        <p class="nav-footer-social-buttons">
+          <a class="fa-icon" href="https://www.instagram.com/" title="">
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a class="fa-icon" href="https://youtube.com/" title="">
+            <i class="fa fa-youtube"></i>
+          </a>
+          <a class="fa-icon" href="https://wechat.com/" title="">
+            <i class="fa fa-wechat"></i>
+          </a>
+        </p>
+        <p>© 2022 | Powered by Github.</p>
+      </nav>  
+    </div> 
+  </nav>
+</header>
+<main class="" id="main-collapse">
+
+
+<div class="row">
+  <div class="col-xs-12 section-container-spacer">
+    <h2> 重制Erik Demaine教授的折纸课 </h2>
+    
+    <p>网上的公开课总是很难看完，可能是因为课程太干，或许我可以将课程重新做得更加得交互和直观。
+    <p>采用Blender作为建模工具，原因在于其和Python的交互，便于批量化的操作和记录过程，
+      坏处在于我发现好像速度比较慢，因为每一个模型都是一个类，可能要避免数量过多的模型；
+      另外，还需要学习一下如何用编程来进行上色，可以和节点方法融合。</p>
+    <p>为了验证是可行的，先试验一下Ron Resch结构的展开动画是不是可以，
+      然后按照集数顺序进行分析，最后按照自己的理解编排顺序，整合整个课程。</p>
+    
+    <h3>Ron Resch结构的展开</h3>
+    <p>现在已经根据shooting方法算出了展开路径上Resch结构的每一个坐标，目标是根据这些坐标得到整个路径的动画。</p>
+    <h5>Blender与Python的动画交互</h5>
+    <p>Blender的动画设置是对每个body在每一个帧的位置进行设定，body在每一帧的位置根据其中心坐标和绕X Y Z三个轴的旋转角度来确定，
+      具体来说，确定操作帧数的语句为</p>
+    
+    <blockquote>
+      <p>frame_number = 0 </p>
+      <p>bpy.context.scene.frame_set(frame_number) </p>
+    </blockquote>
+    
+    <p>操作body在这一帧上的位置（注意是物体中心位置）的语句为：直接将物体的坐标更改为(1,2,3)，index=-1意思是同时更改X，Y，Z的坐标</p>
+    
+    <blockquote>
+      <p>obj.location = (1,2,3) </p>
+      <p>obj.keyframe_insert(data_path = "location",index = -1) </p>
+    </blockquote>
+    
+  </div>
+
+
+</div>
+
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function (event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+</script>
+
+<script type="text/javascript" src="./main.85741bff.js"></script></body>
+
+</html>
