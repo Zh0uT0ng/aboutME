@@ -82,16 +82,25 @@
     <p>The motion simulation of the deployable strucuture can be done with the help of target-shoot method and the accuracy can be up to 1e-12. 
        Thus, we get the global coordinates of the deployable structure at any time. 
        It is enough to simulate the location of the structure bodies but not to add more rendering unluckily after all MATLAB is not for this.</p>
-    <p>Here is the problem: How to LINK the MATLAB(where we do computing) and Blender(where we do rendering)?</p>
+    <p>So here is the problem: How to LINK the MATLAB(where we do computing) and Blender(where we do rendering)?</p>
     
     <h3>Something about Blender</h3>
     <p>Blender is famous of its features of open-source and how friendly it is for Python users. 
        That is right! Any move in the Blender can be replicated with the help of Python scripts.
-       </p>
-    <p>The normal method is to refer to the Blender Document. 
+       The normal method is to refer to the Blender Document. 
        One trick is taking the information hint on the Info window of the Scripting Tab. So keep in mind. 
        </p>
-    <p>
+    <p>Blender has its body locating and rotating system with intuitive parameters while the rotation center of the body is at its origin point implicitly.
+       The 'Location X, Y, Z' standing for the coordinate of its origin point
+       and 'Rotation X, Y, Z' standing for the rotating angle(degree but not radian) around X, Y, Z axis respectively.</p> 
+    
+    <h3>Calculate Rotation with Coordinate</h3>
+    <p>As told, MATLAB would do the simulation part and output the coordinates at each timing slides. 
+       So what we should do is to transform the coordinate into a rotating system but without the knowledge of rotation center.</p>
+    <h4>Find the rotation Center</h4> 
+    <p>Pic.</p>
+    
+       
     
     
     
