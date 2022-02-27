@@ -17,7 +17,7 @@
 
 
 
-  <title>Zhou Tong | 重制Erik Demaine教授的折纸课</title>  
+  <title>Zhou Tong | Dance with Blender</title>  
 
 <link href="./main.82cfd66e.css" rel="stylesheet"></head>
 
@@ -76,17 +76,17 @@
 
 <div class="row">
   <div class="col-xs-12 section-container-spacer">
-    <h2> 重制Erik Demaine教授的折纸课 </h2>
+    <h2> Dance with Blender </h2>
     
-    <p>网上的公开课总是很难看完，可能是因为课程太干，或许我可以将课程重新做得更加得交互和直观。
-    <p>采用Blender作为建模工具，原因在于其和Python的交互，便于批量化的操作和记录过程，
-      坏处在于我发现好像速度比较慢，因为每一个模型都是一个类，可能要避免数量过多的模型；
-      另外，还需要学习一下如何用编程来进行上色，可以和节点方法融合。</p>
-    <p>为了验证是可行的，先试验一下Ron Resch结构的展开动画是不是可以，
-      然后按照集数顺序进行分析，最后按照自己的理解编排顺序，整合整个课程。</p>
+    <h3> Background </h3>
+    <p>The motion simulation of the deployable strucuture can be done with the help of target-shoot method and the accuracy can be up to 1e-12. 
+       Thus, we get the global coordinates of the deployable structure at any time. 
+       It is enough to simulate the location of the structure bodies but not to add more rendering unluckily after all MATLAB is not for this.</p>
+    <p>Here is the problem: How to LINK the MATLAB(where we do computing) and Blender(where we do rendering)?</p>
     
-    <h3>Ron Resch结构的展开</h3>
-    <p>现在已经根据shooting方法算出了展开路径上Resch结构的每一个坐标，目标是根据这些坐标得到整个路径的动画。</p>
+    <h3>Something about Blender</h3>
+    <p>Wikipedia would tell us its features of open-source and how friendly it is for Python users. 
+       That is right! Any move in the Blender can be replicated with the help of Python scripts.</p>
     <h5>Blender与Python的动画交互</h5>
     <p>Blender的动画设置是对每个body在每一个帧的位置进行设定，body在每一帧的位置根据其中心坐标和绕X Y Z三个轴的旋转角度来确定，
       具体来说，确定操作帧数的语句为</p>
