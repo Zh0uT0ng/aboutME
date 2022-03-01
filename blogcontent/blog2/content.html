@@ -118,17 +118,17 @@
        <i>Pa1[2,1,0], Pb1[-1,1,0]</i> and <i>Pc1[-1,-1,0]</i> and the points after moving are: 
        <i>Pa2[1.964,-0.134,-0.061], Pb2[0.127,0.927,2.061]</i> and <i>Pc2[-1.352,-0.220,1.354]</i> 
     <ul>
-       <li>Calculate the Shifting Vector: 
+       <li><b>Calculate the Shifting Vector:</b> 
            Pick the point right on the Pa1 with 1 unit as the referred point <i>Pref1[2,1,1]</i>
            and therefore the refered point after moving can be computed with the normal vector as <i>Pref2[2.245,-0.873,0.551]</i>.
            So the shifting vector is <i>Pref2-Pref1=[0.245,-1.8731,-0.449]</i></li>
-       <li>Calculate the Rotation Matrix: 
+       <li><b>Calculate the Rotation Matrix: </b>
            After the shift moving, the body is at the location 2 and all points of it are transformed by <i>vecShift</i>, which are:
            <i>Pa1_[2.2445,-0.8731,-0.4486], Pb1_[-0.7555,-0.8731,-0.4486]</i> and <i>Pc1_[-0.7555,-2.8731,-0.4486]</i>
            Then there is only rotating transformation left and the rotation matrix can be computed with pseudo-inverse matrix of points:
            <i>[Pa2;Pb2;Pc2]*[Pa1_;Pb1_;Pc1_]<sup>-1</sup></i>. So the rotation matrix is put as 
            <i>[0.6123,0.7395,0.2805;-0.3537,0.5735,-0.7391;-0.7073,0.3535,0.6124]</i></li>
-       <li>Calculate the Rotation Angle: 
+       <li><b>Calculate the Rotation Angle: </b>
            MATLAB function <i>rotm2eul</i> can help transform the rotation matrix into the rotation angle. 
            So its corresponding rotation angle is alpha=30<sup>o</sup>, beta=45<sup>o</sup>, gamma=-30<sup>o</sup>.</li>
     </ul>
@@ -138,7 +138,7 @@
     <p>Now that the shift vector and the rotation angle are computed, the next step is to make the animation in the Blender and 
        Blender allows to manipulate the location of bodies at each frame to do so. So here I will take the Ron Resch unit to show the detail. </p>
     <ul>
-      <li> Build the Basic Body:
+      <li><b> Build the Basic Body:</b>
            Ron Resch unit is made of 12 triangle planes connected closely and it can fold or open up when tracted. 
            I will simulate the opening-up process. 
            Firstly, with the help of MATLAB and the basic geometry, I can get the coordinates of each points and bodies. 
@@ -155,7 +155,7 @@
             </font></p>
       </blockquote>
       <p> pic <>
-      <li> Reset the Rotation Center:
+      <li><b> Reset the Rotation Center:</b>
            MATLAB code would output the rotation center as well so what I have to do is to move the origin to the rotation center.
            It cannot be done directly but I could take advantage of the 3D Cursor in the Blender 
            to move the cursor to the desired location and set the body's origin to the cursor.</li>
@@ -171,7 +171,7 @@
             </font></p>
       </blockquote>
       <p> pic <>
-      <li> Manipulate the Object:
+      <li><b> Manipulate the Object:</b>
            The basic idea here is to record the value of object's location and rotation at every frame windows. 
            This means that there are two steps: to pick every single frames orderly and to input the location and rotation value.
            And with the loop based on the frame, the motion can be done automatically.</li>
