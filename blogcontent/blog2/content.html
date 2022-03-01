@@ -97,8 +97,22 @@
     <h3>Calculate Rotation with Coordinate</h3>
     <p>As told, MATLAB would do the simulation part and output the coordinates at each timing slides. 
        So what we should do is to transform the coordinate into a rotating system but without the knowledge of rotation center.</p>
-    <h4>Find the rotation Center</h4> 
+    <h4>Find the Rotation Center</h4> 
     <p>Pic.</p>
+    <p>Shifting and rotating are all naturally involved in the movement of an object while they should be regarded as 
+       two steps at the conventience of calculation in Blender. In this circumstance, "shifting-rotating" pattern is adopted.</p> 
+    <p>Shifting vector can be calculated easily with the distance difference of a point fixed on the body at two configurations.
+       In other words, after conducting the shifting vector on the all points of the body, it moves to a new location 
+       and the fixed refered point at the last config is right on the later one. </p>
+    <p>We call this point the "rotation center" due to the rotation is actually at the basis of this point and its axis. 
+       Here is some head-up for rotation things. One point(x1,y1,z1) rotates along X, Y and Z-axis with alpha, beta, gamma perspectively 
+       and it turns to the point(x2,y2,z2). This rotation relationship can be described with the <a href="https://en.wikipedia.org/wiki/Rotation_matrix">rotation matrix</a>.
+       Reversely, rotation matrix and the rotating angle can be computed from the before and after coordinate of the point 
+       with the help of MATLAB's function <q>pinv</q> and <q>rotm2eul</q>.
+       One thing miss above is the order(mode) of rotaion. The result at "X-Y-Z" order and at "Z-Y-X" is different. 
+       The algorithm above is at "Z-Y-X" order but in Blender it follows "X-Y-Z" at default setting.</p>
+    
+    
     
        
     
