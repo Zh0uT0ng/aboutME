@@ -98,17 +98,9 @@
     <p>Shifting and rotating are all naturally involved in the movement of an object while they should be regarded as two steps 
        at the convenience of calculation in Blender. In this circumstance, a "shifting-rotating" pattern is adopted.</p> 
     
-<!--     <p><img alt="" src="https://github.com/Zh0uT0ng/aboutME/blob/gh-pages/blogcontent/blog2/assets/RotationwithBlender.jpeg?raw=true",width="304"></p> -->
     <div class="section-container-spacer">
       <p><img class="img-responsive" alt="" src="https://github.com/Zh0uT0ng/aboutME/blob/gh-pages/blogcontent/blog2/assets/RotationwithBlender.jpeg?raw=true"></p>
-<!--       <div class="row">
-          <div class="col-xs-12 col-md-6">
-              <p><img class="img-responsive" alt="" src="./assets/images/img-13.jpg"></p>
-          </div>
-          <div class="col-xs-12 col-md-6">
-              <p><img class="img-responsive" alt="" src="./assets/images/img-14.jpg"></p>
-          </div>
-      </div> -->
+
     </div>
     <p>The shifting vector can be calculated easily with the distance difference of a point fixed on the body at two configurations. 
        In other words, after conducting the shifting vector on all points of the body, 
@@ -140,6 +132,26 @@
            MATLAB function <i>rotm2eul</i> can help transform the rotation matrix into the rotation angle. 
            So its corresponding rotation angle is alpha=30<sup>o</sup>, beta=45<sup>o</sup>, gamma=-30<sup>o</sup>.</li>
     </ul>
+    
+    <h3> Code with Blender </h3>
+    <p>Now that the shift vector and the rotation angle are computed, the next step is to make the animation in the Blender and 
+       Blender allows to manipulate the location of bodies at each frame to do so. So here I will take the Ron Resch unit to show the detail. </p>
+    <ul>
+      <li> Build the basic body:
+           Ron Resch unit is made of 12 triangle planes connected closely and it can fold or open up when tracted. 
+           I will simulate the opening-up process. Firstly, with the help of MATLAB and the basic geometry, I can get the coordinates of each points and bodies.
+           And the code in Blender to draw a body is:</li>
+      <blockquote>
+           <p style="line-height:1.0"><font size="2" face="Ayuthaya">
+              bpy.ops.mesh.primitive_plane_add(size=1,location=(0,0,0)) # add the plane at [0,0,0]
+           </font></p>
+           <p style="line-height:1.0"><font size="2" face="Ayuthaya">
+              bpy.ops.mesh.merge(type='CENTER') # enter the EDIT mode and turn the rectangle into triangle
+           </font></p>
+           <p style="line-height:1.0"><font size="2" face="Ayuthaya">
+              bm.verts[0].co=p1 # set the coordinate to the right one
+            </font></p>
+      </blockquote>
       
    
    
