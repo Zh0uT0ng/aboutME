@@ -110,7 +110,7 @@
        One point(x1,y1,z1) rotates along the X, Y, and Z-axis with alpha, beta, gamma perspectively and it turns to the point(x2,y2,z2).
        This rotation relationship can be described with the <a href="https://en.wikipedia.org/wiki/Rotation_matrix">rotation matrix</a>.
        Reversely, the rotation matrix and the rotating angle can be computed from the before and after coordinate of the point 
-       with the help of MATLAB's function <i>pinv</i> and <i>rotm2eul</i>. </p>
+       with the help of MATLAB's function <b>pinv</b> and <b>rotm2eul</b>. </p>
     <p>One thing missing above is the order(mode) of rotation. 
        The result at "X-Y-Z" order and at "Z-Y-X" is different. 
        The algorithm above is at the "Z-Y-X" order but in Blender, it follows "X-Y-Z" at the default setting.</p>
@@ -132,7 +132,7 @@
            MATLAB function <i>rotm2eul</i> can help transform the rotation matrix into the rotation angle. 
            So its corresponding rotation angle is alpha=30<sup>o</sup>, beta=45<sup>o</sup>, gamma=-30<sup>o</sup>.</li>
     </ul>
-    <p> The MATLAB code <i>calRotation</i> can be found <a href="https://en.wikipedia.org/wiki/Rotation_matrix">HERE</a>.. <p>
+    <p> The MATLAB code <b>calRotation</b> can be found <a href="https://github.com/Zh0uT0ng/DancewithBlender/blob/main/calRotation.m">HERE</a>. <p>
     
     <h3> Code with Blender </h3>
     <p>Now that the shift vector and the rotation angle are computed, the next step is to make the animation in the Blender and 
@@ -192,7 +192,8 @@
               obj_0.keyframe_insert(data_path ='rotation_euler', index=-1)
            </font></p>
       </blockquote>
-   
+      <p> pic <>
+   <p> The Python code <b>ReschSimulation</b> can be found <a href="https://github.com/Zh0uT0ng/DancewithBlender/blob/main/ReschSimulation.py">HERE</a>. <p>
 
     
        
