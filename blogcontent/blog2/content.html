@@ -100,8 +100,8 @@
     
     <div class="section-container-spacer">
       <p><img class="img-responsive" alt="" src="https://github.com/Zh0uT0ng/aboutME/blob/gh-pages/blogcontent/blog2/assets/RotationwithBlender.jpeg?raw=true"></p>
-
     </div>
+    
     <p>The shifting vector can be calculated easily with the distance difference of a point fixed on the body at two configurations. 
        In other words, after conducting the shifting vector on all points of the body, 
        it moves to a new location and the fixed referred point at the last config is right on the later one.</p>
@@ -154,7 +154,11 @@
               bm.verts[0].co=p1 # SET THE COORDINATE RIGHT
             </font></p>
       </blockquote>
-      <p> pic <>
+      
+      <div class="section-container-spacer">
+      <p><img class="img-responsive" alt="" src="https://github.com/Zh0uT0ng/aboutME/blob/gh-pages/blogcontent/blog2/assets/RonResch2State.png?raw=true"></p>
+    </div>
+      
       <li><b> Reset the Rotation Center:</b>
            MATLAB code would output the rotation center as well so what I have to do is to move the origin to the rotation center.
            It cannot be done directly but I could take advantage of the 3D Cursor in the Blender 
@@ -170,7 +174,11 @@
               bpy.ops.object.origin_set(type='ORIGIN_CURSOR') # SET THIS OBJECT'S ORIGIN TO 3D CURSOR
             </font></p>
       </blockquote>
-      <p> pic <>
+      
+      <div class="section-container-spacer">
+      <p><img class="img-responsive" alt="" src="https://github.com/Zh0uT0ng/aboutME/blob/gh-pages/blogcontent/blog2/assets/RonReschRotationCenter.png?raw=true"></p>
+    </div>
+      
       <li><b> Manipulate the Object:</b>
            The basic idea here is to record the value of object's location and rotation at every frame windows. 
            This means that there are two steps: to pick every single frames orderly and to input the location and rotation value.
@@ -192,12 +200,14 @@
               obj_0.keyframe_insert(data_path ='rotation_euler', index=-1)
            </font></p>
       </blockquote>
-      <p> pic <>
+   </ul>
+    
+    <div class="section-container-spacer">
+      <p><img class="img-responsive" alt="" src="https://github.com/Zh0uT0ng/aboutME/blob/gh-pages/blogcontent/blog2/assets/RotationwithBlender.jpeg?raw=true"></p>
+    </div>
+    
    <p> The Python code <b>ReschSimulation</b> can be found <a href="https://github.com/Zh0uT0ng/DancewithBlender/blob/main/ReschSimulation.py">HERE</a>. <p>
 
-    
-       
-    
     
     
     
