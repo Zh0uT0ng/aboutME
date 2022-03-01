@@ -99,20 +99,35 @@
        So what we should do is to transform the coordinate into a rotating system but without the knowledge of rotation center.</p>
     <h4>Find the Rotation Center</h4> 
     <p>Pic.</p>
-    <p>Shifting and rotating are all naturally involved in the movement of an object while they should be regarded as 
-       two steps at the conventience of calculation in Blender. In this circumstance, "shifting-rotating" pattern is adopted.</p> 
-    <p>Shifting vector can be calculated easily with the distance difference of a point fixed on the body at two configurations.
-       In other words, after conducting the shifting vector on the all points of the body, it moves to a new location 
-       and the fixed refered point at the last config is right on the later one. </p>
-    <p>We call this point the "rotation center" due to the rotation is actually at the basis of this point and its axis. 
-       Here is some head-up for rotation things. One point(x1,y1,z1) rotates along X, Y and Z-axis with alpha, beta, gamma perspectively 
-       and it turns to the point(x2,y2,z2). This rotation relationship can be described with the <a href="https://en.wikipedia.org/wiki/Rotation_matrix">rotation matrix</a>.
-       Reversely, rotation matrix and the rotating angle can be computed from the before and after coordinate of the point 
-       with the help of MATLAB's function <q>pinv</q> and <q>rotm2eul</q>.
-       One thing miss above is the order(mode) of rotaion. The result at "X-Y-Z" order and at "Z-Y-X" is different. 
-       The algorithm above is at "Z-Y-X" order but in Blender it follows "X-Y-Z" at default setting.</p>
-    
-    
+    <p>Shifting and rotating are all naturally involved in the movement of an object while they should be regarded as two steps 
+       at the convenience of calculation in Blender. In this circumstance, a "shifting-rotating" pattern is adopted.</p> 
+    <p>The shifting vector can be calculated easily with the distance difference of a point fixed on the body at two configurations. 
+       In other words, after conducting the shifting vector on all points of the body, 
+       it moves to a new location and the fixed referred point at the last config is right on the later one.</p>
+    <p>This point is also called the "rotation center" due to the rotation is actually at the basis of this point and its axis. 
+       Some head-up for rotation things. 
+       One point(x1,y1,z1) rotates along the X, Y, and Z-axis with alpha, beta, gamma perspectively and it turns to the point(x2,y2,z2).
+       This rotation relationship can be described with the <a href="https://en.wikipedia.org/wiki/Rotation_matrix">rotation matrix</a>.
+       Reversely, the rotation matrix and the rotating angle can be computed from the before and after coordinate of the point 
+       with the help of MATLAB's function <i>pinv</i> and <i>rotm2eul</i>. </p>
+    <p>One thing missing above is the order(mode) of rotation. 
+       The result at "X-Y-Z" order and at "Z-Y-X" is different. 
+       The algorithm above is at the "Z-Y-X" order but in Blender, it follows "X-Y-Z" at the default setting.</p>
+    <p>Take a triangle body as an example, the original points of the body before moving are perspectively: 
+       <i>Pa1(2,1,0), Pb1(-1,1,0)</i> and <i>Pc1(-1,-1,0)</i> and the points after moving are: 
+       <i>Pa2(1.964,-0.134,-0.061), Pb2(0.127,0.927,2.061)</i> and <i>Pc2(-1.352,-0.220,1.354)</i> 
+    <ul>
+       <li>Calculate the Shifting Vector: 
+           Pick the point right on the Pa1 with 1 unit as the referred point <i>Pref1(2,1,1)</i>
+           and therefore the refered point after moving can be computed with the normal vector as <i>Pref2(2.245,-0.873,0.551)</i>.
+           So the shifting vector is <i>Pref2-Pref1=(0.245,-1.8731,-0.449)</i></li>
+       <li>Calculate the Shifting Vector: 
+           Pick the point right on the Pa1 with 1 unit as the referred point <i>Pref1(2,1,1)</i>
+           and therefore the refered point after moving can be computed with the normal vector as <i>Pref2(2.245,-0.873,0.551)</i>.
+           So the shifting vector is <i>Pref2-Pref1=(0.245,-1.8731,-0.449)</i></li>
+    </ul>
+      
+
     
        
     
