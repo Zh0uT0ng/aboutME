@@ -132,27 +132,43 @@
            MATLAB function <i>rotm2eul</i> can help transform the rotation matrix into the rotation angle. 
            So its corresponding rotation angle is alpha=30<sup>o</sup>, beta=45<sup>o</sup>, gamma=-30<sup>o</sup>.</li>
     </ul>
+    <p> The MATLAB code <i>calRotation</i> can be found <a href="https://en.wikipedia.org/wiki/Rotation_matrix">HERE</a>.. <p>
     
     <h3> Code with Blender </h3>
     <p>Now that the shift vector and the rotation angle are computed, the next step is to make the animation in the Blender and 
        Blender allows to manipulate the location of bodies at each frame to do so. So here I will take the Ron Resch unit to show the detail. </p>
     <ul>
-      <li> Build the basic body:
+      <li> Build the Basic Body:
            Ron Resch unit is made of 12 triangle planes connected closely and it can fold or open up when tracted. 
            I will simulate the opening-up process. Firstly, with the help of MATLAB and the basic geometry, I can get the coordinates of each points and bodies.
            And the code in Blender to draw a body is:</li>
-      <blockquote style="background-color: #EDEEF1">
-           <p style="line-height:0.5"><font size="1" face="Ayuthaya">
-              bpy.ops.mesh.primitive_plane_add(size=1,location=(0,0,0)) # add the plane
+      <blockquote style="background-color: #F8F9FB">
+           <p style="line-height:0.3"><font size="1" face="Ayuthaya">
+              bpy.ops.mesh.primitive_plane_add(size=1,location=(0,0,0)) # ADD THE PLANE
            </font></p>
-           <p style="line-height:0.5"><font size="1" face="Ayuthaya">
-              bpy.ops.mesh.merge(type='CENTER') # enter the EDIT mode and turn the rectangle into triangle
+           <p style="line-height:0.3"><font size="1" face="Ayuthaya">
+              bpy.ops.mesh.merge(type='CENTER') # ENTER THE EDIT MODE AND DROP A VETEX
            </font></p>
-           <p style="line-height:0.5"><font size="1" face="Ayuthaya">
-              bm.verts[0].co=p1 # set the coordinate to the right one
+           <p style="line-height:0.3"><font size="1" face="Ayuthaya">
+              bm.verts[0].co=p1 # SET THE COORDINATE RIGHT
             </font></p>
       </blockquote>
-      
+      <p> pic <>
+      <li> Reset the Rotation Center:
+           MATLAB code would output the rotation center as well so what I have to do is to move the origin to the rotation center.
+           It cannot be done directly but I could take advantage of the 3D Cursor in the Blender 
+           to move the cursor to the desired location and set the body's origin to the cursor.</li>
+      <blockquote style="background-color: #F8F9FB">
+           <p style="line-height:0.3"><font size="1" face="Ayuthaya">
+              bpy.context.scene.cursor.location =(rc0[0],rc0[1],rc0[2]) # MOVE THE 3D CURSOR
+           </font></p>
+           <p style="line-height:0.3"><font size="1" face="Ayuthaya">
+              obj_0.select_set(True) # SELECT THE FIRST OBJECT
+           </font></p>
+           <p style="line-height:0.3"><font size="1" face="Ayuthaya">
+              bpy.ops.object.origin_set(type='ORIGIN_CURSOR') # SET THIS OBJECT'S ORIGIN TO 3D CURSOR
+            </font></p>
+      </blockquote>
    
    
    
