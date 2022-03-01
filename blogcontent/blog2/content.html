@@ -141,14 +141,14 @@
            Ron Resch unit is made of 12 triangle planes connected closely and it can fold or open up when tracted. 
            I will simulate the opening-up process. Firstly, with the help of MATLAB and the basic geometry, I can get the coordinates of each points and bodies.
            And the code in Blender to draw a body is:</li>
-      <blockquote>
-           <p style="line-height:1.0"><font size="2" face="Ayuthaya">
-              bpy.ops.mesh.primitive_plane_add(size=1,location=(0,0,0)) # add the plane at [0,0,0]
+      <blockquote style="background-color: pink">
+           <p style="line-height:1.0"><font size="1" face="Ayuthaya">
+              bpy.ops.mesh.primitive_plane_add(size=1,location=(0,0,0)) # add the plane
            </font></p>
-           <p style="line-height:1.0"><font size="2" face="Ayuthaya">
+           <p style="line-height:1.0"><font size="1" face="Ayuthaya">
               bpy.ops.mesh.merge(type='CENTER') # enter the EDIT mode and turn the rectangle into triangle
            </font></p>
-           <p style="line-height:1.0"><font size="2" face="Ayuthaya">
+           <p style="line-height:1.0"><font size="1" face="Ayuthaya">
               bm.verts[0].co=p1 # set the coordinate to the right one
             </font></p>
       </blockquote>
