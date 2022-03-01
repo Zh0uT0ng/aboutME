@@ -140,8 +140,9 @@
     <ul>
       <li> Build the Basic Body:
            Ron Resch unit is made of 12 triangle planes connected closely and it can fold or open up when tracted. 
-           I will simulate the opening-up process. Firstly, with the help of MATLAB and the basic geometry, I can get the coordinates of each points and bodies.
-           And the code in Blender to draw a body is:</li>
+           I will simulate the opening-up process. 
+           Firstly, with the help of MATLAB and the basic geometry, I can get the coordinates of each points and bodies. 
+           And I draw the body in the Blender</li>
       <blockquote style="background-color: #F8F9FB">
            <p style="line-height:0.3"><font size="1" face="Ayuthaya">
               bpy.ops.mesh.primitive_plane_add(size=1,location=(0,0,0)) # ADD THE PLANE
@@ -159,19 +160,38 @@
            It cannot be done directly but I could take advantage of the 3D Cursor in the Blender 
            to move the cursor to the desired location and set the body's origin to the cursor.</li>
       <blockquote style="background-color: #F8F9FB">
-           <p style="line-height:0.3"><font size="1" face="Ayuthaya">
+           <p style="line-height:0.2"><font size="1" face="Ayuthaya">
               bpy.context.scene.cursor.location =(rc0[0],rc0[1],rc0[2]) # MOVE THE 3D CURSOR
            </font></p>
-           <p style="line-height:0.3"><font size="1" face="Ayuthaya">
+           <p style="line-height:0.2"><font size="1" face="Ayuthaya">
               obj_0.select_set(True) # SELECT THE FIRST OBJECT
            </font></p>
-           <p style="line-height:0.3"><font size="1" face="Ayuthaya">
+           <p style="line-height:0.2"><font size="1" face="Ayuthaya">
               bpy.ops.object.origin_set(type='ORIGIN_CURSOR') # SET THIS OBJECT'S ORIGIN TO 3D CURSOR
             </font></p>
       </blockquote>
-   
-   
-   
+      <p> pic <>
+      <li> Manipulate the Object:
+           The basic idea here is to record the value of object's location and rotation at every frame windows. 
+           This means that there are two steps: to pick every single frames orderly and to input the location and rotation value.
+           And with the loop based on the frame, the motion can be done automatically.</li>
+      <blockquote style="background-color: #F8F9FB">
+           <p style="line-height:0.2"><font size="1" face="Ayuthaya">
+            bpy.context.scene.frame_set(0) # SET CURRENT FRAME NUMBER
+           </font></p>
+           <p style="line-height:0.2"><font size="1" face="Ayuthaya">
+              obj_0.location = (rc0[0],rc0[1],rc0[2]) # SET THE LOCATION AT THIS FRAME
+           </font></p>
+           <p style="line-height:0.2"><font size="1" face="Ayuthaya">
+              obj_0.keyframe_insert(data_path = "location",index = -1)
+           </font></p>
+           <p style="line-height:0.2"><font size="1" face="Ayuthaya">
+              obj_0.rotation_euler =(30,45,-30)  # SET THE ROTATION AT THIS FRAME
+           </font></p>
+           <p style="line-height:0.2"><font size="1" face="Ayuthaya">
+              obj_0.keyframe_insert(data_path ='rotation_euler', index=-1)
+           </font></p>
+      </blockquote>
    
 
     
